@@ -1,0 +1,28 @@
+# Intellij Idea related file
+.idea
+*.iml
+atlassian-ide-plugin.xml
+
+# Eclipse
+.settings
+.project
+.classpath
+
+# maven generated files
+target
+.repository
+
+# Atomikos tm files
+erfp/configs/test/.tm/
+
+# JRebel files
+rebel.xml
+rebel-remote.xml
+
+# Utility files
+*.log
+*.patch
+
+
+erfp/configs/local/.tm
+
