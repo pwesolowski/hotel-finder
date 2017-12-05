@@ -2,16 +2,15 @@ package com.hrs.sourcing.coding_task;
 
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+
 import java.time.LocalDate;
 
-@Data
+@Getter
 @Builder
-class Hotel {
-
+public class Hotel {
     private int hotelId;
     private String hotelName;
     private Address address;
     private LocalDate buildingDate;
-
 }
