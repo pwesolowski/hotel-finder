@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.time.LocalDate;
 
 @ToString
@@ -12,6 +14,10 @@ import java.time.LocalDate;
 @Builder
 public class Hotel {
     private String hotelName;
+
+    @Nullable
     private Address address;
+
+    @Nonnull
     private LocalDate buildingDate;
 }

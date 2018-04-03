@@ -18,18 +18,10 @@ public class NewestHotelStreetFinderTest {
     @Test
     public void should_return_address_for_newest_hotel() {
         //given
-        final Address addressToFind = Address.builder()
-                .city("Warsaw")
-                .street("Mazowiecka")
-                .build();
+        final Address addressToFind = address("Warsaw", "Pulawska");
         final Set<Hotel> exampleHotels = new HashSet<>(asList(
                 hotel(year(2005), addressToFind),
-                hotel(
-                        year(1970),
-                        Address.builder()
-                                .city("Warsaw")
-                                .street("Pulawska")
-                                .build())));
+                hotel(year(1970), address("Poznan", "Piotrowska"))));
 
         //when
         final Optional<Address> address = newestHotelAddressFinder.findAddressOfTheMostRecentlyBuildHotel(exampleHotels);
@@ -53,6 +45,13 @@ public class NewestHotelStreetFinderTest {
         final Optional<Address> address = newestHotelAddressFinder.findAddressOfTheMostRecentlyBuildHotel(exampleHotels);
 
         assertThat(address).isEmpty();
+    }
+
+    private Address address(String city, String street) {
+        return Address.builder()
+                .city(city)
+                .street(street)
+                .build();
     }
 
     private Hotel hotel(int yearOfConstruction, Address address) {
