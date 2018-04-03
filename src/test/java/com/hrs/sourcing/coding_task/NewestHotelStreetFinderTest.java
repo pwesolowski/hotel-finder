@@ -3,10 +3,10 @@ package com.hrs.sourcing.coding_task;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.singleton;
@@ -14,13 +14,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class NewestHotelStreetFinderTest {
     private NewestHotelStreetFinder newestHotelAddressFinder = null;
-    private AtomicInteger idGenerator = new AtomicInteger(0);
 
     @Test
     public void should_return_address_for_newest_hotel() {
         //given
         final Address addressToFind = Address.builder()
-                .id(5)
                 .city("Warsaw")
                 .street("Mazowiecka")
                 .build();
@@ -29,7 +27,6 @@ public class NewestHotelStreetFinderTest {
                 hotel(
                         year(1970),
                         Address.builder()
-                                .id(5)
                                 .city("Warsaw")
                                 .street("Pulawska")
                                 .build())));
@@ -43,7 +40,7 @@ public class NewestHotelStreetFinderTest {
 
     @Test
     public void should_find_nothing_when_no_hotels() {
-        final Optional<Address> result = newestHotelAddressFinder.findAddressOfTheMostRecentlyBuildHotel(new HashSet<>());
+        final Optional<Address> result = newestHotelAddressFinder.findAddressOfTheMostRecentlyBuildHotel(Collections.emptySet());
 
         assertThat(result).isEmpty();
     }
@@ -60,7 +57,6 @@ public class NewestHotelStreetFinderTest {
 
     private Hotel hotel(int yearOfConstruction, Address address) {
         return Hotel.builder()
-                .hotelId(idGenerator.incrementAndGet())
                 .buildingDate(LocalDate.of(yearOfConstruction, 1, 30))
                 .hotelName("someName")
                 .address(address)

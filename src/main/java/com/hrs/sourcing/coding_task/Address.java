@@ -9,7 +9,6 @@ import lombok.ToString;
 @Getter
 @Builder
 public class Address {
-    private Integer id;
     private String city;
     private String street;
 }
