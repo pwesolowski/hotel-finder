@@ -1,5 +1,6 @@
 package com.hrs.sourcing.coding_task;
 
+import com.hrs.sourcing.coding_task.samples.ForBasedNewestHotelFinder;
 import org.junit.Test;
 
 import java.time.LocalDate;
