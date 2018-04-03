@@ -2,7 +2,6 @@ package com.hrs.sourcing.coding_task;
 
 
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.ToString;
 

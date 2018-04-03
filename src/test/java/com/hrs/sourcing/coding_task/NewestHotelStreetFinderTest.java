@@ -35,7 +35,7 @@ public class NewestHotelStreetFinderTest {
                                 .build())));
 
         //when
-        final Optional<Address> address = newestHotelAddressFinder.findStreetNameOfTheMostRecentBuildHotel(exampleHotels);
+        final Optional<Address> address = newestHotelAddressFinder.findAddressOfTheMostRecentlyBuildHotel(exampleHotels);
 
         //then
         assertThat(address).contains(addressToFind);
@@ -43,7 +43,7 @@ public class NewestHotelStreetFinderTest {
 
     @Test
     public void should_find_nothing_when_no_hotels() {
-        final Optional<Address> result = newestHotelAddressFinder.findStreetNameOfTheMostRecentBuildHotel(new HashSet<>());
+        final Optional<Address> result = newestHotelAddressFinder.findAddressOfTheMostRecentlyBuildHotel(new HashSet<>());
 
         assertThat(result).isEmpty();
     }
@@ -53,7 +53,7 @@ public class NewestHotelStreetFinderTest {
         final Address missingAddress = null;
         final Set<Hotel> exampleHotels = singleton(hotel(year(1970), missingAddress));
 
-        final Optional<Address> address = newestHotelAddressFinder.findStreetNameOfTheMostRecentBuildHotel(exampleHotels);
+        final Optional<Address> address = newestHotelAddressFinder.findAddressOfTheMostRecentlyBuildHotel(exampleHotels);
 
         assertThat(address).isEmpty();
     }

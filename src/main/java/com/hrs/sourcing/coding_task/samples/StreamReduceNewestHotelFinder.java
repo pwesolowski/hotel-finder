@@ -10,9 +10,9 @@ import java.util.function.BinaryOperator;
 
 import static java.util.Comparator.comparing;
 
-public class StreamingNewstHotelFinder implements NewestHotelStreetFinder {
+public class StreamReduceNewestHotelFinder implements NewestHotelStreetFinder {
     @Override
-    public Optional<Address> findStreetNameOfTheMostRecentBuildHotel(Set<Hotel> hotels) {
+    public Optional<Address> findAddressOfTheMostRecentlyBuildHotel(Set<Hotel> hotels) {
         return hotels.stream()
                 .reduce(BinaryOperator.maxBy(comparing(Hotel::getBuildingDate)))
                 .map(Hotel::getAddress);
