@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class ForBasedNewestHotelFinder implements NewestHotelStreetFinder {
     @Override
-    public Optional<Address> findStreetNameOfTheMostRecentBuildHotel(Set<Hotel> hotels) {
+    public Optional<Address> findAddressOfTheMostRecentlyBuildHotel(Set<Hotel> hotels) {
         Hotel latest = null;
 
         for (Hotel h : hotels) {
